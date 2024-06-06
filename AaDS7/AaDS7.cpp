@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<vector<int>> convertToAdjacencyList(const vector<vector<int>>& adjacencyMatrix) {
+vector<vector<int>> convertToList(const vector<vector<int>>& adjacencyMatrix) {
     int n = adjacencyMatrix.size();
     vector<vector<int>> adjacencyList(n);
 
@@ -121,16 +121,18 @@ void Dijkstra(const vector<vector<int>>& adjacencyMatrix, int start) {
 
 
 int main() {
-    // Приклад матриці суміжності
     vector<vector<int>> adjacencyMatrix = {
-        {0, 1, 0, 0, 1},
-        {1, 0, 1, 1, 0},
-        {0, 1, 0, 1, 0},
-        {0, 1, 1, 0, 1},
-        {1, 0, 0, 1, 0}
+        {0, 7, 9, 0, 0, 1, 0, 0},
+        {7, 0, 2, 8, 0, 2, 1, 7},
+        {0, 2, 0, 2, 8, 0, 4, 5},
+        {0, 8, 2, 0, 3, 1, 0, 0},
+        {9, 0, 8, 3, 0, 8, 4, 1},
+        {1, 2, 0, 1, 8, 0, 7, 9},
+        {0, 1, 4, 0, 4, 7, 0, 1},
+        {0, 7, 5, 0, 1, 9, 1, 0}
     };
 
-    vector<vector<int>> adjacencyList = convertToAdjacencyList(adjacencyMatrix);
+    vector<vector<int>> adjacencyList = convertToList(adjacencyMatrix);
     printAdjacencyList(adjacencyList);
 
     cout << "BFS starting from vertex 0: ";
